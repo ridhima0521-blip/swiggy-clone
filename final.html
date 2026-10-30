@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food - Online Food Ordering</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #ffffff;
+    color: #222;
+}
+
+/* HEADER */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 8%;
+    box-shadow: 0 2px 8px #ddd;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.logo {
+    display : flex;
+    align-items : center;
+    gap : 10px;
+}
+.logo img {
+    width : 40px;
+    height : 40px;
+}
+
+.logo p{
+    font-size: 27px;
+    font-weight: bold;
+    color: #fc8019;
+    margin : 0;
+}
+
+.location {
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.location span {
+    color: #fc8019;
+    font-weight: bold;
+}
+
+.search-box {
+    display: flex;
+    background: #f5f5f5;
+    border-radius: 10px;
+    padding: 12px;
+    width: 300px;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 100%;
+}
+
+/* MAIN */
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* BANNER */
+.banner {
+    height: 260px;
+    border-radius: 25px;
+    background:
+    linear-gradient(90deg, rgba(0,0,0,.85), rgba(0,0,0,.1)),
+    url("https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200")
+    center/cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    color: white;
+}
+
+.banner h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+/* SECTION */
+.section-title {
+    font-size: 23px;
+    margin: 35px 0 20px;
+}
+
+/* CATEGORIES */
+.categories {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.category {
+    text-align: center;
+    min-width: 85px;
+    cursor: pointer;
+}
+
+.category img {
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: .3s;
+}
+
+.category img:hover {
+    transform: scale(1.1);
+}
+
+.category p {
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+
+
+/* RESPONSIVE */
+@media(max-width: 850px) {
+    .restaurant-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(max-width: 550px) {
+    header {
+        padding: 15px;
+    }
+
+    .search-box {
+        width: 100%;
+    }
+
+    .banner {
+        height: 200px;
+        padding: 25px;
+    }
+
+    .banner h1 {
+        font-size: 27px;
+    }
+
+    .restaurant-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8CVBqAahCyeTUF56zAElR_sPoeQxM5isPI-S_Gh-CIg&s">
+        <p> Swiggy </p></div>
+
+    <div class="location">
+         <span>Setup your precise location</span>
+    </div>
+
+    <div class="search-box">
+        <input type="text" id="searchInput"
+        placeholder="Search for restaurant and food...">
+        🔍
+    </div>
+
+    <div>👤</div>
+</header>
+
+<div class="container">
+
+    <!-- BANNER -->
+    <div class="banner">
+        <div class = "banner-text">
+        <h1>Order Food Online in Meerut</h1>
+        </div>
+    </div>
+
+    <!-- CATEGORIES -->
+    <h2 class="section-title">What's on your mind?</h2>
+
+    <div class="categories">
+
+        <div class="category" onclick="filterFood('Pizza')">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200">
+            <p>Pizza</p>
+        </div>
+
+        <div class="category" onclick="filterFood('North Indian')">
+            <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=200">
+            <p>North Indian</p>
+        </div>
+
+        <div class="category" onclick="filterFood('Cake')">
+            <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200">
+            <p>Cakes</p>
+        </div>
+
+        <div class="category" onclick="filterFood('Biryani')">
+            <img src="https://images.unsplash.com/photo-1563379091339-03246963d51a?w=200">
+            <p>Biryani</p>
+        </div>
+
+        <div class="category" onclick="filterFood('Chole Bhature')">
+            <img src="https://images.unsplash.com/photo-1626132647523-66f5bf380027?w=200">
+            <p>Chole Bhature</p>
+        </div>
+
+        <div class="category" onclick="filterFood('Burger')">
+            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200">
+            <p>Burgers</p>
+        </div>
+
+        <div class="category" onclick="filterFood('Roll')">
+            <img src="https://images.unsplash.com/photo-1626700051175-6818013e1d4f?w=200">
+            <p>Rolls</p>
+        </div>
+
+        <div class="category" onclick="filterFood('Dosa')">
+            <img src="https://images.unsplash.com/photo-1668236543090-82eba5ee5976?w=200">
+            <p>Dosa</p>
+        </div>
+
+    </div>
+
+</script>
+
+</body>
+</html>
